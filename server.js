@@ -2,6 +2,8 @@ require("dotenv").config();
 
 const express = require("express");
 const { MongoClient } = require("mongodb");
+const swaggerUi = require("swagger-ui-express");
+const swaggerDocument = require("./swagger.json");
 
 const app = express();
 const port = process.env.PORT || 8080;
@@ -12,6 +14,9 @@ const client = new MongoClient(uri);
 
 // Middleware
 app.use(express.json());
+
+// Swagger
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Routes
 app.use("/", require("./routes"));
@@ -25,7 +30,6 @@ async function startServer() {
 
         console.log("✅ Connected to MongoDB Atlas");
 
-        // Make the database available throughout the app
         app.locals.db = client.db(process.env.DB_NAME);
 
         app.listen(port, () => {
