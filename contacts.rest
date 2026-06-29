@@ -13,7 +13,7 @@ GET http://localhost:8080/contacts/6a3f802c02c80465ee8c1b3f
 
 ###
 
-### Create New Contact
+### Create Contact - Sarah Johnson
 POST http://localhost:8080/contacts
 Content-Type: application/json
 
@@ -23,6 +23,34 @@ Content-Type: application/json
     "email": "sarah.johnson@example.com",
     "favoriteColor": "Pink",
     "birthday": "1999-07-18"
+}
+
+###
+
+### Create Contact - Peter Parker
+POST http://localhost:8080/contacts
+Content-Type: application/json
+
+{
+    "firstName": "Peter",
+    "lastName": "Parker",
+    "email": "peter.parker@example.com",
+    "favoriteColor": "Red",
+    "birthday": "2001-08-10"
+}
+
+###
+
+### Create Contact - Diana Prince
+POST http://localhost:8080/contacts
+Content-Type: application/json
+
+{
+    "firstName": "Diana",
+    "lastName": "Prince",
+    "email": "diana.prince@example.com",
+    "favoriteColor": "Gold",
+    "birthday": "1995-04-25"
 }
 
 ###
